@@ -5,6 +5,7 @@ class BooksController < ApplicationController
   end
 
   def index
+    @book = Book.new
     @books = Book.all
   end
 
@@ -22,8 +23,6 @@ class BooksController < ApplicationController
   def edit
     @book = Book.find(params[:id])
   end
-
-
 
   def update
     @book = Book.find(params[:id])
@@ -43,7 +42,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title)
+    params.require(:book).permit(:title, :body)
   end
 
 end
