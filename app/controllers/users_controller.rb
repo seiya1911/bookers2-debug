@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :sined_in_user, only: [:update]
   before_action :ensure_correct_user, only: [:update]
 
   def show
